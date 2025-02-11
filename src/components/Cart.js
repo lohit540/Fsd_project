@@ -195,8 +195,11 @@ function Cart({ cartItems, setCartItems }) {
                     </div>
                 </div>
             )}
+
         </div>
     );
+
+    
 }
 
 export default Cart;
