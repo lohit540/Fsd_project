@@ -1,0 +1,147 @@
+/* Checkout Page Container */
+.checkout-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Title */
+.checkout-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Empty Cart Message */
+.empty-cart {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Order Summary */
+.order-summary {
+    text-align: left;
+    margin-top: 20px;
+}
+
+/* Order Items */
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Order Item Image (Fixed Size) */
+.order-item-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Item Details */
+.item-details {
+    flex: 1;
+    margin-left: 15px;
+    text-align: left;
+}
+
+.item-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.item-quantity, .item-price, .item-total {
+    font-size: 1rem;
+    color: #555;
+}
+
+.item-total {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Total Price */
+.checkout-total {
+    text-align: center;
+    margin-top: 15px;
+    border-top: 2px solid #ddd;
+    padding-top: 15px;
+}
+
+.checkout-total h3, .checkout-total h2 {
+    margin: 5px 0;
+}
+
+.checkout-total h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Payment Section */
+.payment-section {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.payment-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.payment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Checkout Button */
+.checkout-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.checkout-button:hover {
+    background: #218838;
+}
+
+/* Back to Cart Link */
+.back-to-cart {
+    display: inline-block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.back-to-cart:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,187 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fdf6e3;
+  color: #333;
+  height: 100%;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Home Container Styles */
+.home-container {
+  min-height: 100vh;
+  padding: 50px;
+  background-image: url('C:\\Users\\lohit\\OneDrive\\Desktop\\Restaurant_Website\\my-app\\public\\images\\Background.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+  border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 1.5s ease-out;
+}
+
+/* Apply a dark overlay to the background image */
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Welcome Message */
+.welcome-message {
+  background-color: rgba(139, 0, 0, 0.8);
+  color: gold;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 10px;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.welcome-message h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+.welcome-message p {
+  font-size: 1.3rem;
+  color: #e2e2e2;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+  max-width: 80%;
+  margin: 0 auto;
+  animation: fadeInUp 2s ease-out;
+}
+
+/* About Us Section */
+.about-us {
+  background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+  color: white;
+  padding: 25px;
+  margin: 30px auto;
+  width: 85%;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* Updated About Us Button */
+.about-us-btn {
+  padding: 15px 35px;
+  background: linear-gradient(90deg, #000, #333);
+  color: #ffd700;
+  font-weight: bold;
+  border: 2px solid gold;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 22px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.about-us-btn:hover {
+  background: linear-gradient(90deg, #222, #555);
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Call to Action Buttons Section */
+.cta-container {
+  margin: 20px 0;
+}
+
+.cta-button {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  animation: bounceIn 1s ease-out;
+}
+
+.cta-button:hover {
+  background-color: darkorange;
+}
+
+/* Special Offers Section */
+.special-offers {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: gold;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 10px;
+  animation: fadeInUp 2s ease-out;
+}
+
+/* Contact Form & Book a Table Form */
+.contact-form,
+.book-a-table-form {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 10px;
+  animation: slideIn 2s ease-out;
+}
+
+.contact-form h3,
+.book-a-table-form h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #8e4d34;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form input,
+.contact-form textarea,
+.book-a-table-form input,
+.book-a-table-form select {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.3s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.book-a-table-form input:focus,
+.book-a-table-form select:focus {
+  border: 2px solid #ff6347;
+  outline: none;
+}
+
+.contact-form button,
+.book-a-table-form button {
+  background-color: #ff6347;
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+  animation: pulse 1.5s infinite;
+}
+
+.contact-form button:hover,
+.book-a-table-form button:hover {
+  background-color: #e55347;
+  transform: scale(1.05);
+}
