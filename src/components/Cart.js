@@ -30,7 +30,6 @@ const cartReducer = (state, action) => {
 function Cart({ cartItems, setCartItems }) {
     const navigate = useNavigate();
     const [cartState, dispatch] = useReducer(cartReducer, cartItems);
-    const [discount, setDiscount] = useState(0);
     const [promoCode, setPromoCode] = useState("");
     const [removedItem, setRemovedItem] = useState(null);
     const taxRate = 5; // 5% Tax
@@ -85,33 +84,25 @@ function Cart({ cartItems, setCartItems }) {
     const calculateDiscountedTotal = () => {
         const subtotal = calculateSubtotal();
         const taxAmount = calculateTax();
-        let finalDiscount = 0;
+        let discount = 0;
 
         if (promoCode === "SAVE10") {
-            finalDiscount = 10;
+            discount = 10;
         } else if (promoCode === "SAVE20") {
-            finalDiscount = 20;
-        } else {
-            finalDiscount = discount;
+            discount = 20;
         }
 
-        const discountAmount = (subtotal * finalDiscount) / 100;
+        const discountAmount = (subtotal * discount) / 100;
         return subtotal + taxAmount - discountAmount;
     };
 
-    const handleApplyDiscount = () => {
-        const enteredCode = prompt("Enter discount code or percentage:", promoCode);
+    const handleApplyCoupon = () => {
+        const enteredCode = prompt("Enter promo code:", promoCode);
         if (enteredCode === "SAVE10" || enteredCode === "SAVE20") {
             setPromoCode(enteredCode);
             alert(`Promo code "${enteredCode}" applied!`);
         } else {
-            const enteredDiscount = parseFloat(enteredCode);
-            if (!isNaN(enteredDiscount) && enteredDiscount >= 0 && enteredDiscount <= 100) {
-                setDiscount(enteredDiscount);
-                localStorage.setItem("discount", enteredDiscount);
-            } else {
-                alert("Invalid discount. Enter a number (0-100) or a valid promo code.");
-            }
+            alert("Invalid promo code. Please try again.");
         }
     };
 
@@ -122,7 +113,6 @@ function Cart({ cartItems, setCartItems }) {
         }
 
         localStorage.setItem("cartItems", JSON.stringify(cartState));
-        localStorage.setItem("discount", discount);
         localStorage.setItem("promoCode", promoCode);
 
         navigate("/checkout");
@@ -155,7 +145,7 @@ function Cart({ cartItems, setCartItems }) {
                             <img src={item.image} alt={item.name} className="item-image" />
                             <div className="item-details">
                                 <h3 className="item-name">{item.name}</h3>
-                                <p className="item-price">${item.price}</p>
+                                <p className="item-price">₹{item.price}</p>
                                 <div className="quantity-control">
                                     <button onClick={() => updateQuantity(item.name, item.quantity - 1)}>−</button>
                                     <input
@@ -172,21 +162,20 @@ function Cart({ cartItems, setCartItems }) {
                                     value={item.note || ""}
                                     onChange={(e) => updateNote(item.name, e.target.value)}
                                 />
-                                <p className="item-total">${(item.price * item.quantity).toFixed(2)}</p>
+                                <p className="item-total">₹{(item.price * item.quantity).toFixed(2)}</p>
                             </div>
                             <button className="remove-button" onClick={() => removeItem(item)}>Remove</button>
                         </div>
                     ))}
 
                     <div className="cart-total">
-                        <h3 className="subtotal">Subtotal: ${calculateSubtotal().toFixed(2)}</h3>
-                        <h3 className="tax">Tax (5%): ${calculateTax().toFixed(2)}</h3>
+                        <h3 className="subtotal">Subtotal: ₹{calculateSubtotal().toFixed(2)}</h3>
+                        <h3 className="tax">Tax (5%): ₹{calculateTax().toFixed(2)}</h3>
                         <div className="discount-section">
-                            <button onClick={handleApplyDiscount} className="apply-discount">Apply Discount</button>
-                            {discount > 0 && <p className="discount-message">Discount: {discount}%</p>}
+                            <button onClick={handleApplyCoupon} className="apply-discount">Apply Coupon</button>
                             {promoCode && <p className="promo-code">Promo Code: {promoCode}</p>}
                         </div>
-                        <h3 className="total">Grand Total: ${calculateDiscountedTotal().toFixed(2)}</h3>
+                        <h3 className="total">Grand Total: ₹{calculateDiscountedTotal().toFixed(2)}</h3>
                         <div className="checkout-buttons">
                             <button className="checkout-button" onClick={handleCheckout}>Checkout</button>
                             <button className="clear-cart-button" onClick={clearCart}>Clear Cart</button>
@@ -195,11 +184,8 @@ function Cart({ cartItems, setCartItems }) {
                     </div>
                 </div>
             )}
-
         </div>
     );
-
-    
 }
 
 export default Cart;

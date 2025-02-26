@@ -8,6 +8,73 @@ body {
   animation: fadeIn 1s ease-out;
 }
 
+/* Keyframes for Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* Home Container Styles */
 .home-container {
   min-height: 100vh;
@@ -51,6 +118,7 @@ body {
   font-size: 3.5rem;
   margin-bottom: 15px;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+  animation: float 3s ease-in-out infinite;
 }
 
 .welcome-message p {
@@ -87,6 +155,7 @@ body {
   font-size: 22px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+  animation: pulse 2s infinite;
 }
 
 .about-us-btn:hover {
@@ -184,4 +253,29 @@ body {
 .book-a-table-form button:hover {
   background-color: #e55347;
   transform: scale(1.05);
+}
+
+/* Social Icons Section */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.social-icons img {
+  width: 50px; /* Increased size */
+  height: 50px; /* Increased size */
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
+  animation: float 3s ease-in-out infinite;
 }
