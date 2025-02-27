@@ -31,12 +31,15 @@ function Checkout() {
         return (subtotal * taxRate) / 100;
     };
 
-    // Calculate discounted total 
+    // Calculate grand total (subtotal + tax)
+    const calculateGrandTotal = () => {
+        return calculateSubtotal() + calculateTax();
+    };
+
+    // Calculate discounted total (grand total - discount)
     const calculateDiscountedTotal = () => {
-        const subtotal = calculateSubtotal();
-        const taxAmount = calculateTax();
-        const discountAmount = (subtotal * discount) / 100;
-        return subtotal + taxAmount - discountAmount;
+        const discountAmount = (calculateSubtotal() * discount) / 100;
+        return calculateGrandTotal() - discountAmount;
     };
 
     const handlePaymentChange = (e) => {
@@ -80,9 +83,10 @@ function Checkout() {
                     <div className="checkout-total">
                         <h3>Subtotal: ₹{calculateSubtotal().toFixed(2)}</h3>
                         <h3>Tax (5%): ₹{calculateTax().toFixed(2)}</h3>
+                        <h2>Grand Total: ₹{calculateGrandTotal().toFixed(2)}</h2>
                         {discount > 0 && <h3>Discount: {discount}%</h3>}
                         {promoCode && <h3>Promo Code Applied: {promoCode}</h3>}
-                        <h2>Total Amount: ₹{calculateDiscountedTotal().toFixed(2)}</h2>
+                        <h2>Final Amount: ₹{calculateDiscountedTotal().toFixed(2)}</h2>
                     </div>
                     <div className="payment-section">
                         <label className="payment-label">Select Payment Method:</label>
