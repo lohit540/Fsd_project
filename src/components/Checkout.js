@@ -80,10 +80,9 @@ function Checkout() {
                     <div className="checkout-total">
                         <h3>Subtotal: ₹{calculateSubtotal().toFixed(2)}</h3>
                         <h3>Tax (5%): ₹{calculateTax().toFixed(2)}</h3>
-                        <h3>Subtotal + Tax: ₹{(calculateSubtotal() + calculateTax()).toFixed(2)}</h3>
                         {discount > 0 && <h3>Discount: {discount}%</h3>}
                         {promoCode && <h3>Promo Code Applied: {promoCode}</h3>}
-                        <h2>Grand Total: ₹{calculateDiscountedTotal().toFixed(2)}</h2>
+                        <h2>Total Amount: ₹{calculateDiscountedTotal().toFixed(2)}</h2>
                     </div>
                     <div className="payment-section">
                         <label className="payment-label">Select Payment Method:</label>

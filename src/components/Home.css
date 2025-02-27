@@ -1,3 +1,4 @@
+/* General Body Styles */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -91,7 +92,7 @@ body {
   animation: fadeInUp 1.5s ease-out;
 }
 
-/* Apply a dark overlay to the background image */
+/* Dark Overlay for Background Image */
 .home-container::before {
   content: '';
   position: absolute;
@@ -143,7 +144,7 @@ body {
   animation: fadeInUp 1.2s ease-in-out;
 }
 
-/* Updated About Us Button */
+/* About Us Button */
 .about-us-btn {
   padding: 15px 35px;
   background: linear-gradient(90deg, #000, #333);
@@ -274,8 +275,23 @@ body {
 }
 
 .social-icons img {
-  width: 50px; /* Increased size */
-  height: 50px; /* Increased size */
+  width: 50px;
+  height: 50px;
   filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.5));
   animation: float 3s ease-in-out infinite;
+}
+
+/* Instagram Icon (Pink) */
+.social-icons a[href*="instagram.com"] img {
+  filter: brightness(0.8) sepia(1) hue-rotate(-30deg) saturate(5);
+}
+
+/* Facebook Icon (Blue) */
+.social-icons a[href*="facebook.com"] img {
+  filter: brightness(0.8) sepia(1) hue-rotate(190deg) saturate(5);
+}
+
+/* Twitter Icon (Blue) */
+.social-icons a[href*="twitter.com"] img {
+  filter: brightness(0.8) sepia(1) hue-rotate(200deg) saturate(5);
 }
