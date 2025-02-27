@@ -13,7 +13,6 @@
 }
 
 
-/* Title */
 .cart-title {
     text-align: center;
     font-size: 2.2rem;
@@ -53,7 +52,6 @@
     gap: 20px;
 }
 
-/* Individual Cart Item */
 .cart-item {
     display: flex;
     align-items: center;
@@ -99,7 +97,6 @@
     margin-top: 5px;
 }
 
-/* Quantity Control */
 .quantity-control {
     display: flex;
     align-items: center;

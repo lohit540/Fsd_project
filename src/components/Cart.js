@@ -32,7 +32,7 @@ function Cart({ cartItems, setCartItems }) {
     const [cartState, dispatch] = useReducer(cartReducer, cartItems);
     const [promoCode, setPromoCode] = useState("");
     const [removedItem, setRemovedItem] = useState(null);
-    const taxRate = 5; // 5% Tax
+    const taxRate = 5; // 5%taxx
 
     useEffect(() => {
         setCartItems(cartState);

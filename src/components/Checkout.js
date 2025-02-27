@@ -21,7 +21,7 @@ function Checkout() {
         setDiscount(storedDiscount);
     }, []);
 
-    // Calculate subtotal (sum of all item prices * quantities)
+    // Calculate subtotal 
     const calculateSubtotal = () =>
         cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -31,7 +31,7 @@ function Checkout() {
         return (subtotal * taxRate) / 100;
     };
 
-    // Calculate discounted total (subtotal + tax - discount)
+    // Calculate discounted total 
     const calculateDiscountedTotal = () => {
         const subtotal = calculateSubtotal();
         const taxAmount = calculateTax();

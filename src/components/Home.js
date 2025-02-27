@@ -60,7 +60,7 @@ const Home = () => {
     return dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   };
 
-  // ✅ Handle Booking Submission
+  // ✅  Booking Submission
   const handleTableBookingSubmit = (event) => {
     event.preventDefault();
 
@@ -117,7 +117,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* ✅ Book a Table Form (Updated Output) */}
+      {/* ✅ Book a Table Form  */}
       {showBookTableForm && (
         <div className="book-a-table-form">
           <h3>Book a Table</h3>

@@ -191,7 +191,7 @@ body {
 
   
   
-  /* Additional Styling for Responsiveness */
+  /* Additional Styling  */
   @media (max-width: 768px) {
     .menu-item {
       width: 100%;
