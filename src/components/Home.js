@@ -133,7 +133,7 @@ const Home = () => {
         </div>
       )}
 
-      {/* Contact Form (Kept Same) */}
+      {/* Contact Form  */}
       {showContactForm && (
         <div className="contact-form">
           <h3>Contact Us</h3>
