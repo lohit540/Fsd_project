@@ -36,6 +36,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+{
+  "buildCommand": "npm install --legacy-peer-deps && npm run build"
+}
+
   },
   "devDependencies": {
     "ajv": "^7.2.4"
