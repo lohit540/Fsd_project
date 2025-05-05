@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
+import { signOut } from "firebase/auth"; // Added signOut
+import { auth } from "../firebase"; // Adjust path if needed
 import './Home.css';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
@@ -10,12 +12,25 @@ const Home = () => {
   const [showAboutUsMessage, setShowAboutUsMessage] = useState(false);
   const [bookingData, setBookingData] = useState(null);
 
+  const navigate = useNavigate(); // ✅
+
   useEffect(() => {
     const savedBookingData = localStorage.getItem('bookingData');
     if (savedBookingData) {
       setBookingData(JSON.parse(savedBookingData));
     }
   }, []);
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Logged out successfully");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Error logging out:", error);
+      });
+  };
 
   const toggleContactForm = () => {
     setShowContactForm(!showContactForm);
@@ -42,25 +57,22 @@ const Home = () => {
     setShowAboutUsMessage(!showAboutUsMessage);
   };
 
-  // ✅ Format Time to AM/PM
   const formatAMPM = (hour, minute) => {
     let hours = parseInt(hour, 10);
     const minutes = parseInt(minute, 10);
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
-    hours = hours ? hours : 12; // '0' should be '12'
+    hours = hours ? hours : 12;
     const strMinutes = minutes < 10 ? '0' + minutes : minutes;
     return `${hours}:${strMinutes} ${ampm}`;
   };
 
-  // ✅ Format Date with Month Name (e.g., "February 7, 2025")
   const formatDate = (date) => {
     const [year, month, day] = date.split('-');
     const dateObj = new Date(year, month - 1, day);
     return dateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   };
 
-  // ✅  Booking Submission
   const handleTableBookingSubmit = (event) => {
     event.preventDefault();
 
@@ -81,6 +93,21 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {/* ✅ Logout Button */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '10px' }}>
+        <button onClick={handleLogout} style={{
+          backgroundColor: '#ff4d4d',
+          border: 'none',
+          padding: '10px 20px',
+          borderRadius: '5px',
+          color: 'white',
+          cursor: 'pointer',
+          fontWeight: 'bold'
+        }}>
+          Logout
+        </button>
+      </div>
+
       <div className="welcome-message">
         <h1>Welcome to Gourmet Delights</h1>
         <p>Experience the finest flavors crafted with love. Fresh ingredients, exceptional taste, and unforgettable moments.</p>
@@ -117,7 +144,6 @@ const Home = () => {
         </div>
       )}
 
-      {/* ✅ Book a Table Form  */}
       {showBookTableForm && (
         <div className="book-a-table-form">
           <h3>Book a Table</h3>
@@ -133,7 +159,6 @@ const Home = () => {
         </div>
       )}
 
-      {/* Contact Form  */}
       {showContactForm && (
         <div className="contact-form">
           <h3>Contact Us</h3>
